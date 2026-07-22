@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 010b-backfill-captured-at
+      author: fx
+      changes:
+        - sql:
+            sql: UPDATE fx_rate SET captured_at = TIMESTAMP(rate_date) WHERE captured_at IS NULL
+      rollback:
+        - sql:
+            sql: UPDATE fx_rate SET captured_at = NULL

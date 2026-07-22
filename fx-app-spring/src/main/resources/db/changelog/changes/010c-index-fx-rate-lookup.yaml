@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 010c-index-fx-rate-lookup
+      author: fx
+      changes:
+        - createIndex:
+            tableName: fx_rate
+            indexName: idx_fx_rate_pair_captured
+            columns:
+              - column: { name: base_code }
+              - column: { name: quote_code }
+              - column: { name: captured_at }
+      rollback:
+        - dropIndex:
+            tableName: fx_rate
+            indexName: idx_fx_rate_pair_captured
