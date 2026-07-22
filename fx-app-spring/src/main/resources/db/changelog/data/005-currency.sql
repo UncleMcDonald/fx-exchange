@@ -1,0 +1,1 @@
+INSERT INTO currency VALUES ('USD','US Dollar','$'),('EUR','Euro','EUR'),('GBP','Pound Sterling','GBP'),('JPY','Japanese Yen','JPY'),('CHF','Swiss Franc','Fr'),('AUD','Australian Dollar','A$'),('CAD','Canadian Dollar','C$'),('SGD','Singapore Dollar','S$');
