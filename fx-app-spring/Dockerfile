@@ -7,6 +7,8 @@ RUN mvn -B -q package -DskipTests
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+RUN useradd --system --create-home --home-dir /home/app --shell /usr/sbin/nologin app
+COPY --from=build --chown=app:app /app/target/*.jar app.jar
 EXPOSE 8080
+USER app
 ENTRYPOINT ["java", "-jar", "app.jar"]
