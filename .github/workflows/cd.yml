@@ -8,6 +8,10 @@ permissions:
   contents: read
   packages: write
 
+concurrency:
+  group: cd-main-staging
+  cancel-in-progress: false
+
 defaults:
   run:
     working-directory: fx-app-spring
